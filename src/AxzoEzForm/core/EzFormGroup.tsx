@@ -1,16 +1,20 @@
 import type { FunctionalComponent } from 'vue'
 import { LogicHandler, Render,componentFactory } from './componentFactory'
 
-interface FormItemComponentProps extends Record<string, unknown> {
+interface FormGroupComponentProps extends Record<string, unknown> {
   logicHandler: LogicHandler;
   render:Render;
 }
 
-const EzFormItem: FunctionalComponent<FormItemComponentProps> = (props, ctx) => {
+const EzFormGroup: FunctionalComponent<FormGroupComponentProps> = (props, ctx) => {
   const { logicHandler, render, ...restProps } = props
 
   const FormComponent = componentFactory(logicHandler, render, ctx)
-  return <FormComponent {...restProps}></FormComponent>
+  return (
+    <FormComponent {...restProps}>
+      {ctx.slots}
+    </FormComponent>
+  )
 }
 
-export  {EzFormItem}
+export  {EzFormGroup}

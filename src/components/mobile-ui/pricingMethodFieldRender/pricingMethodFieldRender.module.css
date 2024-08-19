@@ -1,4 +1,31 @@
 .pricing-method-field {
     flex-wrap: nowrap;
-    background-color: red;
+    :deep(.van-cell__value) {
+      flex: 0 0 auto;
+    }
+}
+
+.btn-radio-box {
+    display: inline-flex;
+    background: #f2f3f5;
+    padding: 2px;
+    align-items: center;
+    border-radius: 2px;
+    > div {
+      display: flex;
+      box-sizing: border-box;
+      color: #4E5969;
+      &.active {
+        background: #fff;
+        border-color: #fff;
+        color: #1d2129;
+      }
+      &.disabled {
+        color: #C9CDD4;
+      }
+    }
+  }
+
+.payment-method-btn {
+    width: 70px;
 }

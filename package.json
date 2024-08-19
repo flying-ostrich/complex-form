@@ -14,7 +14,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
-    "@vue/babel-preset-jsx": "^1.4.0",
+    "@vitejs/plugin-vue-jsx": "^4.0.1",
+    "less": "^4.2.0",
     "typescript": "^5.5.3",
     "vite": "^5.4.1",
     "vue-tsc": "^2.0.29"

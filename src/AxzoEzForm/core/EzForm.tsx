@@ -1,16 +1,19 @@
 import type { FunctionalComponent } from 'vue'
-import componentFactory, { LogicHandler, Render } from './componentFactory'
+import { LogicHandler, Render, componentFactory } from './componentFactory'
 
-interface FormComponentProps extends Record<string, unknown> {
+interface FormComponentProps<T> extends Record<string, unknown> {
   logicHandler: LogicHandler;
-  render:Render;
+  render: Render;
+  model: T
 }
 
-const EzForm: FunctionalComponent<FormComponentProps> = (props, ctx) => {
-  const { logicHandler, render, ...restProps } = props
+type EzFormParams<T> = Parameters<FunctionalComponent<FormComponentProps<T>>>
+
+const EzForm = <T,>(props:EzFormParams<T>[0], ctx:EzFormParams<T>[1]) => {
+  const { logicHandler, render, ...restProps } = props;
 
   const FormComponent = componentFactory(logicHandler, render, ctx)
   return <FormComponent {...restProps}></FormComponent>
 }
 
-export default EzForm
+export { EzForm }

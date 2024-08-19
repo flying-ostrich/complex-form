@@ -1,15 +1,28 @@
-import { LogicHandler } from '../../../AxzoEzForm/core/componentFactory'
-import EzForm from '../../../AxzoEzForm/core/EzForm'
-import FieldPricingMethod from '../FieldPricingMethod'
+import { ref } from 'vue';
+import { LogicHandler, EzForm } from '../../../AxzoEzForm/core'
 import { quantityPriceFormRender } from '../../../components/mobile-ui/quantityPriceFormRender'
+import FieldPricingMethod from '../FieldPricingMethod'
+import GroupQuantityPrice from '../GroupQuantityPrice'
+
+interface QuantityPriceFormModel {
+  pricingMethod: string;
+}
+
 
 export default () => {
-  const logicHandler:LogicHandler = (_, ctx) => {
+  const model = ref<QuantityPriceFormModel>({
+    pricingMethod: 'aaa'
+  });
+
+  const logicHandler: LogicHandler = (_, ctx) => {
     return ctx
   }
+
   return (
-        <EzForm logicHandler={logicHandler} render={quantityPriceFormRender} >
-            <FieldPricingMethod></FieldPricingMethod>
-        </EzForm>
+    <EzForm model={model} logicHandler={logicHandler} render={quantityPriceFormRender} >
+      <GroupQuantityPrice>
+        <FieldPricingMethod></FieldPricingMethod>
+      </GroupQuantityPrice>
+    </EzForm>
   )
 }

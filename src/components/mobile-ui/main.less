@@ -1,0 +1,246 @@
+/* 可复用的全局样式 */
+.ax-nav-page {
+  box-sizing: border-box;
+  min-height: 100vh;
+
+  /* 为NavBar预留高度 */
+  padding-top: 44px;
+}
+@supports (bottom: constant(safe-area-inset-top)) or
+  (bottom: env(safe-area-inset-top)) {
+  .ax-nav-page {
+    /* 为NavBar预留高度 */
+    padding-top: calc(44px + constant(safe-area-inset-top));
+    padding-top: calc(44px + env(safe-area-inset-top));
+  }
+}
+
+/**
+    * 顶部安全区域  van-safe-area-top
+    * 底部安全区域  van-safe-area-bottom
+   */
+
+/**
+  1px边框
+  上边框: van-hairline--top
+  下边框: van-hairline--bottom
+  左边框: van-hairline--left
+  右边框: van-hairline--right
+  上下边框: van-hairline--top-bottom
+  全部边框: van-hairline--surround
+   */
+
+/** 顶部安全区域 */
+.ax-p-safe-area-top {
+  padding-top: calc(44px + constant(safe-area-inset-top));
+  padding-top: calc(44px + env(safe-area-inset-top));
+}
+
+/** 顶部安全区域 margin */
+.ax-m-safe-area-top {
+  margin-top: calc(44px + constant(safe-area-inset-top));
+  margin-top: calc(44px + env(safe-area-inset-top));
+}
+
+/** 底部安全区域 */
+.ax-p-safe-area-bottom {
+  padding-bottom: calc(80px + constant(safe-area-inset-top));
+  padding-bottom: calc(80px + env(safe-area-inset-top));
+}
+
+/** 底部安全区域 margin */
+.ax-m-safe-area-bottom {
+  margin-bottom: calc(80px + constant(safe-area-inset-top));
+  margin-bottom: calc(80px + env(safe-area-inset-top));
+}
+
+.fontW-5 {
+  font-weight: 500;
+}
+
+.fontW-4 {
+  font-weight: 400;
+}
+
+.commonColor {
+  color: #08a86d;
+}
+
+.warningText {
+  color: #ff9a26;
+}
+
+.grayText {
+  color: #8c8c8c;
+}
+
+.gray-1 {
+  color: #ccc;
+}
+
+.blackText {
+  color: #000;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* flex布局 垂直居中 */
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+/* flex布局 左右 */
+.flex-justify-between {
+  justify-content: space-between;
+}
+
+/* flex布局 水平居中 */
+.flex-justify-center {
+  justify-content: center;
+}
+
+/* flex布局 垂直居中 水平居中 */
+.flex-align-justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* flex布局 结束对齐 */
+.flex-justify-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* flex布局 开始对齐 */
+.flex-justify-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* flex布局  垂直布局 */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* flex布局  垂直布局 垂直居中 */
+.flex-column-justify-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* flex布局  垂直布局 水平居中 */
+.flex-column-align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/** flex布局  换行 */
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/** flex布局  换行 垂直居中 */
+.flex-wrap-align-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/** flex布局  换行 水平居中 */
+.flex-wrap-justify-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/** flex布局  垂直居中 左右布局 */
+.flex-align-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* flex垂直布局  垂直居中 水平 */
+.flex-column-center {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 字体颜色 */
+.text-color-45 {
+  color: rgb(0 0 0 / 45%);
+}
+
+.text-color-65 {
+  color: rgb(0 0 0 / 65%);
+}
+
+.text-color-85 {
+  color: rgb(0 0 0 / 85%);
+}
+
+.text-color-9 {
+  color: rgb(0 0 0 / 90%);
+}
+
+.text-color-cc {
+  color: #ccc;
+}
+
+/* 字体大小 10px */
+.text-size-xs {
+  font-size: var(--van-font-size-xs);
+}
+
+/* 字体大小 12px */
+.text-size-sm {
+  font-size: var(--van-font-size-sm);
+}
+
+/* 字体大小 14px */
+.text-size-md {
+  font-size: var(--van-font-size-md);
+}
+
+/* 字体大小 16px */
+.text-size-lg {
+  font-size: var(--van-font-size-lg);
+}
+
+* {
+  -webkit-touch-callout: none; /*系统默认菜单被禁用*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -khtml-user-select: none; /*早期浏览器*/
+  -moz-user-select: none; /*火狐*/
+  -ms-user-select: none; /*IE10*/
+  user-select: none;
+}
+
+input,
+textarea {
+  -webkit-user-select: auto; /*webkit浏览器*/
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
+.color-a9aeb8 {
+  color: #a9aeb8;
+}

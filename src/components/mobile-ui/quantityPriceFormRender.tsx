@@ -1,8 +1,8 @@
-import { Render } from '@/AxzoEzForm/core/componentFactory'
+import { Render } from '../../AxzoEzForm/core/componentFactory'
 import { Form } from 'vant'
 import 'vant/lib/index.css'
 
-const quantityPriceFormRender:Render = (props, ctx) => {
+const quantityPriceFormRender:Render = (_, ctx) => {
   const defaultSlot = ctx.slots
   return (
         <Form>
