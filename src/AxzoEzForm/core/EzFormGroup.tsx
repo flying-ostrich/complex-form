@@ -1,14 +1,15 @@
-import type { FunctionalComponent } from 'vue'
-import { LogicHandler, Render,componentFactory } from './componentFactory'
+import { FCParams, LogicHandler, Render, componentFactory } from './componentFactory'
 
-interface FormGroupComponentProps extends Record<string, unknown> {
-  logicHandler: LogicHandler;
-  render:Render;
+interface FormGroupComponentProps<FormModel> {
+  logicHandler: LogicHandler<FormModel>;
+  render: Render<FormModel>;
 }
 
-const EzFormGroup: FunctionalComponent<FormGroupComponentProps> = (props, ctx) => {
+const EzFormGroupFactory = <FormModel,>() => (
+  props: FormGroupComponentProps<FormModel>,
+  ctx: FCParams[1]
+) => {
   const { logicHandler, render, ...restProps } = props
-
   const FormComponent = componentFactory(logicHandler, render, ctx)
   return (
     <FormComponent {...restProps}>
@@ -17,4 +18,4 @@ const EzFormGroup: FunctionalComponent<FormGroupComponentProps> = (props, ctx) =
   )
 }
 
-export  {EzFormGroup}
+export { EzFormGroupFactory }

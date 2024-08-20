@@ -1,11 +1,14 @@
 import { FunctionalComponent } from 'vue'
-import { EzFormGroup } from '../../../AxzoEzForm/core'
+import { useEzForm } from '../../../AxzoEzForm/core'
 import { quantityPriceGroupRender } from '../../ui'
+import { QuantityPriceFormModel } from '../../types';
 
-const GroupQuantityPrice:FunctionalComponent = (_,ctx)=>{
+const GroupQuantityPrice: FunctionalComponent = (_, ctx) => {
+  const { EzFormGroup } = useEzForm<QuantityPriceFormModel>();
   const slots = ctx.slots;
+
   return (
-    <EzFormGroup logicHandler={()=>ctx} render={quantityPriceGroupRender} >
+    <EzFormGroup  logicHandler={() => ctx} render={quantityPriceGroupRender} >
       {slots}
     </EzFormGroup>
   )

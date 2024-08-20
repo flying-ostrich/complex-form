@@ -1,11 +1,13 @@
 import { computed } from 'vue'
-import { EzFormItem } from '../../../AxzoEzForm/core'
+import { useEzForm } from '../../../AxzoEzForm/core'
 import { LogicHandler } from '../../../AxzoEzForm/core/componentFactory'
 import { pricingMthodFieldRender } from '../../../components/ui'
 import { PRICE_METHOD_OPTION } from '../../const'
+import { QuantityPriceFormModel } from '../../types'
 
 export default () => {
-  const logicHandler: LogicHandler = (_, ctx) => {
+  const {EzFormItem} =useEzForm<QuantityPriceFormModel>();
+  const logicHandler: LogicHandler<QuantityPriceFormModel> = (_, ctx) => {
     // 处理计价方式类型按钮显示逻辑
     const pricingMethodBtns = computed(() => {
       return PRICE_METHOD_OPTION
@@ -22,6 +24,6 @@ export default () => {
     }
   }
   return (
-    <EzFormItem logicHandler={logicHandler} render={pricingMthodFieldRender}></EzFormItem>
+    <EzFormItem name={'pricingMethod'} logicHandler={logicHandler} render={pricingMthodFieldRender}></EzFormItem>
   )
 }

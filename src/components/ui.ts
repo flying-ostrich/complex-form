@@ -1,1 +1,1 @@
-export * from './web-ui/index'
+export * from './mobile-ui/index'
