@@ -4,7 +4,6 @@ import styles from './pricingMethodFieldRender.module.css'
 import { QuantityPriceFormModel } from '../../types'
 
 const pricingMthodFieldRender: Render<QuantityPriceFormModel> = (_, ctx) => {
-  debugger
   const { pricingMethodBtns, handleChangePriceMethod } = ctx.renderParams || {};
   return (
     <Field center label="计价方式" name="pricingMethod" class={styles['pricing-method-field']}>

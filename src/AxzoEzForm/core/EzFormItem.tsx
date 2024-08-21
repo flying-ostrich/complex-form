@@ -1,4 +1,5 @@
-import { FCParams, LogicHandler, Render, componentFactory } from './componentFactory';
+import { componentFactory } from './componentFactory';
+import { FCParams, LogicHandler, Render } from './types';
 
 interface FormItemComponentProps<FormModel> {
   logicHandler: LogicHandler<FormModel>;
