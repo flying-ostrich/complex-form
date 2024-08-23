@@ -1,7 +1,7 @@
 import { computed } from 'vue'
-import { LogicHandler } from '../../../AxzoEzForm/core/componentFactory'
 import { PRICE_METHOD_OPTION } from '../../const'
 import { QuantityPriceFormModel } from '../../types'
+import { LogicHandler } from '../../../AxzoEzForm/core/types'
 
 
 const fieldPricingMethodHandler: LogicHandler<QuantityPriceFormModel> = (_, ctx) => {

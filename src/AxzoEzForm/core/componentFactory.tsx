@@ -37,7 +37,7 @@ const componentFactory = <FormModel,>(
     // 渲染参数只读
     lCtx.renderParams = setReadOnly(lCtx.renderParams || {});
     // Form Model 只读
-    lCtx.model = readonly(model as Reactive<FormModel>);
+    lCtx.model = readonly(model as Reactive<FormModel>) as any;
     // FormComponent 内部子组件内容
     const fSlots = fCtx.slots?.default?.();
     // Render 函数渲染后的子组件内容

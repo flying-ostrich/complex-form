@@ -1,6 +1,7 @@
 import { provide, defineComponent, watch, ref, Ref } from 'vue'
 import { componentFactory, generateComponentsByCfg } from './componentFactory'
 import type { EzFormFactoryCfg, FormComponentProps, FormInstance } from './types';
+import { PluginManager } from '../plugin/pluginManager';
 
 
 
@@ -29,7 +30,10 @@ const useUpdateByFactoryCfg = <FormModel,>(factoryCfg: EzFormFactoryCfg<FormMode
  * @param factoryCfg 表单项配置对象
  * @returns 
  */
-const EzFormFactory = <FormModel,>(factoryCfg: EzFormFactoryCfg<FormModel>) => {
+const EzFormFactory = <FormModel,>(
+  factoryCfg: EzFormFactoryCfg<FormModel>,
+  pluginManager: PluginManager<FormModel>
+) => {
   return defineComponent<FormComponentProps<FormModel>, {
     change(field: keyof FormModel, value: any): void
   }>(
@@ -49,6 +53,8 @@ const EzFormFactory = <FormModel,>(factoryCfg: EzFormFactoryCfg<FormModel>) => {
 
       provide('formModel', model);
       provide('formInstance', formInstance);
+
+      
 
       const formItems = useUpdateByFactoryCfg(factoryCfg);
       return () => {

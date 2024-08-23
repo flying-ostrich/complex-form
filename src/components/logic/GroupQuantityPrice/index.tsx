@@ -1,5 +1,5 @@
 import { FunctionalComponent } from 'vue'
-import { useEzForm } from '../../../AxzoEzForm'
+// import { useEzForm } from '../../../AxzoEzForm'
 import { quantityPriceGroupRender } from '../../ui'
 import { QuantityPriceFormModel } from '../../types';
 

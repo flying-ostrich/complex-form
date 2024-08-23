@@ -1,7 +1,7 @@
 import { Field } from 'vant'
-import { Render } from '../../../AxzoEzForm/core/componentFactory'
 import styles from './pricingMethodFieldRender.module.css'
 import { QuantityPriceFormModel } from '../../types'
+import { Render } from '../../../AxzoEzForm/core/types';
 
 const pricingMthodFieldRender: Render<QuantityPriceFormModel> = (_, ctx) => {
   const { pricingMethodBtns, handleChangePriceMethod } = ctx.renderParams || {};

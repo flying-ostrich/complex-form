@@ -1,9 +1,9 @@
 import { nextTick, reactive } from 'vue';
-import { pricingMthodFieldRender, quantityPriceFormRender } from '../../ui';
+import { useEzFormFactory } from '../../../AxzoEzForm';
+import { EzFormFactoryCfg, LogicHandler } from '../../../AxzoEzForm/core/types';
 import { QuantityPriceFormModel } from '../../types';
-import { LogicHandler, useEzFormFactory } from '../../../AxzoEzForm';
+import { pricingMthodFieldRender, quantityPriceFormRender } from '../../ui';
 import { fieldPricingMethodHandler } from '../FieldPricingMethod';
-import { EzFormFactoryCfg } from '../../../AxzoEzForm/core/types';
 
 
 export default () => {

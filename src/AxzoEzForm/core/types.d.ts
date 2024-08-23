@@ -1,7 +1,7 @@
 
 export type FCParams = Parameters<FunctionalComponent>
 
-export type LogicContext<FormModel> =FCParams[1] & {
+export type LogicContext<FormModel> = FCParams[1] & {
   renderParams?: Readonly<Record<string, any>>;
   model?: FormModel;
 }
@@ -29,6 +29,7 @@ export interface EzBaseFormItem<FormModel> {
   logicHandler: LogicHandler<FormModel>;
   render: Render<FormModel>;
   type: EzFormItemType;
+  name?: string;
 }
 
 // 表单分组类型
@@ -48,3 +49,57 @@ export type EzFormFactoryCfgLayer<FormModel> = EzFormGroup<FormModel> | EzFormIt
 
 // 表单工厂方法配置（即配置表单项｜表单组的内容）
 export type EzFormFactoryCfg<FormModel> = EzFormFactoryCfgLayer<FormModel>[]
+
+
+/************************************表单插件********************************************/
+
+export type PluginLogicContext<FormModel> = FCParams[1] & {
+  renderParams?: Record<string, any>;
+  model?: FormModel;
+}
+
+export type PluginRenderContext<FormModel> = FCParams[1] & {
+  renderParams?: Readonly<Record<string, any>>;
+  model?: FormModel;
+}
+
+export type EzFormItemPluginLogicHandler<FormModel> = (
+  props: FCParams[0],
+  ctx: PluginLogicContext<FormModel>
+) => {
+  props: FCParams[0],
+  ctx: PluginLogicContext<FormModel>
+};
+
+export type EzFormItemPluginRender<FormModel> = (props: FCParams[0], ctx: RenderContext<FormModel>, el: JSX.Element[] | null) => {
+  props: FCParams[0],
+  ctx: PluginRenderContext<FormModel>,
+  el: JSX.Element[]
+};
+
+export type FormDecoratorType = 'FieldDecoratorPlugin' | 'ExtraFieldPlugin';
+/**
+ * 表单项装饰器插件
+ * 用于装饰指定的表单项，即向表单项前/后插入一些组件或处理逻辑
+ */
+export interface EzFormItemDecoratorPlugin<FormModel> {
+  decorateItemName: string; // 需要被装饰的表单项名称
+  logicHandler: EzFormItemPluginLogicHandler<FormModel>
+  render: EzFormItemPluginRender<FormModel>
+  type: 'ItemDecoratorPlugin'
+}
+
+/**
+ * 额外表单项插件
+ * 用于向表单中添加额外的表单项
+ */
+export interface EzFormExtraFieldPlugin<FormModel> extends EzBaseFormItem<FormModel> {
+  position: {
+    name: string; // 表单项名称
+    insert: 'before' | 'after' // 插入到DOM 前/后
+  },
+  type: 'ExtraFieldPlugin'
+}
+
+// 表单插件
+export type EzFormPlugin<FormModel> = EzFormExtraFieldPlugin<FormModel> | EzFormItemDecoratorPlugin<FormModel>;
